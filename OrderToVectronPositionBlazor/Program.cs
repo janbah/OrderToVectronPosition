@@ -1,5 +1,7 @@
+using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Order2VPos.Core.Common;
 using OrderToVectronPosition.IOneApi;
 using OrderToVectronPositionBlazor.Data;
 
@@ -9,7 +11,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
-//builder.Services.AddTransient<IoneClient>();
+
+builder.Services.AddHttpClient<IIoneClient>(client =>
+{
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+        "Bearer",
+        AppSettings.Default.IoneApiToken);
+    client.DefaultRequestHeaders.Add("Identifier", AppSettings.Default.IoneApiIdentifier);
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+    string baseAddress = AppSettings.Default.ApiBaseAddress;
+    if (!baseAddress.EndsWith("/"))
+        baseAddress += "/";
+    client.BaseAddress = new Uri(baseAddress, UriKind.Absolute);
+});
+
+builder.Services.AddTransient<IIoneClient, IoneClient>();
 
 var app = builder.Build();
 

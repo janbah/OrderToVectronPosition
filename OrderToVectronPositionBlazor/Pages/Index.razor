@@ -1,6 +1,6 @@
 ﻿@page "/"
 @using OrderToVectronPosition.IOneApi
-@* @inject IoneClient ioneClient *@
+@inject IIoneClient ioneClient
 
 
 @code {
@@ -16,8 +16,9 @@
 
     private async Task SubmitOrders(MouseEventArgs arg)
     {
-        throw new NotImplementedException();
-        //await ioneClient.GetAllItemsAsync();
+        DateTime from = new DateTime(1970, 01, 01);
+        DateTime to = DateTime.Now.AddYears(1);
+        await ioneClient.GetOrdersAsync(from, to);
     }
 
 }
