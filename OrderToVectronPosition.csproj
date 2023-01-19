@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,42 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="7.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="OrderToVectronPositionBlazor\**" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="OrderToVectronPositionBlazor\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="OrderToVectronPositionBlazor\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="OrderToVectronPositionBlazor\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Pages\Error.cshtml" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Pages\_Host.cshtml" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\App.razor" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Pages\Counter.razor" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Pages\FetchData.razor" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Pages\Index.razor" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Shared\MainLayout.razor" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Shared\NavMenu.razor" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Shared\SurveyPrompt.razor" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\_Imports.razor" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\appsettings.json" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\obj\OrderToVectronPositionBlazor.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="OrderToVectronPositionBlazor\Properties\launchSettings.json" />
   </ItemGroup>
 
 </Project>

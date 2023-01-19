@@ -1,0 +1,33 @@
+﻿@page "/"
+@using OrderToVectronPosition.IOneApi
+@* @inject IoneClient ioneClient *@
+
+
+@code {
+    private Task SendMasterdata(MouseEventArgs arg)
+    {
+        throw new NotImplementedException();
+    }
+
+    private Task ReadCategories(MouseEventArgs arg)
+    {
+        throw new NotImplementedException();
+    }
+
+    private async Task SubmitOrders(MouseEventArgs arg)
+    {
+        throw new NotImplementedException();
+        //await ioneClient.GetAllItemsAsync();
+    }
+
+}
+
+<PageTitle>Index</PageTitle>
+
+<h1>Ione Vectron Api</h1>
+
+<button class="btn btn-primary"  @onclick="SendMasterdata">Stammdaten senden</button><br/>
+<button class="btn btn-primary" style="margin-top: 10px"@onclick="ReadCategories">Kategorien einlesen</button><br/>
+<button class="btn btn-primary" style="margin-top: 10px" @onclick="SubmitOrders">Bestellungen übertragen</button><br/>
+
+
